@@ -45,6 +45,18 @@ def find_it(seq):
 	return reduce(lambda x, y: x^y, seq)
 # test.assert_equals(find_it([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]), 5)
 
-'''write a function that checks whether the two arrays have the "same" elements and multiplicities. '''
+'''write a function that checks whether the two arrays have the "same" elements and multiplicities. 6kyu'''
 def comp(array1, array2):
-	print([int(i) for i in array2])
+	try:
+		return sorted([i ** 2 for i in array1]) == sorted(array2)
+	except:
+		return False
+# a1 = [121, 144, 19, 161, 19, 144, 19, 11]
+# a2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
+# test.assert_equals(comp(a1, a2), True)
+
+'''ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+   If the function is passed a valid PIN string, return true, else return false.'''
+def validate_pin(pin):
+	
+	
