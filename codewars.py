@@ -23,4 +23,19 @@ def square_digits(num):
 	joined = lambda squared_list: int(''.join(str(i) for i in squared_list))
 	return joined([int(i)**2 for i in str(num)])
 
-''' '''
+'''In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G".
+   You have function with one side of the DNA; you need to get the other complementary side.
+   DNA strand is never empty or there is no DNA at all .'''
+def DNA_strand(dna):
+	strands_base = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+	given_dna = list(dna)
+	return ''.join([strands_base[strand] for strand in given_dna])
+	# Test.assert_equals(DNA_strand("GTAT"),"CATA","String GTAT is")
+
+'''needs a program that among the given numbers finds one that is different in evenness, 
+   and return a position of this number.'''
+def iq_test(numbers):
+	nums = ""
+	for x in str(numbers):
+		nums += str(int(x))
+	print(nums)
