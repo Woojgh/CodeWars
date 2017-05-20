@@ -1,6 +1,7 @@
 import math
+import functools
+from functools import reduce
 from math import sqrt
-from functools import reduce, joined
 
 '''Implement a method that accepts 3 integer values a, b, c. 
    The method should return true if a triangle can be built 
@@ -17,7 +18,8 @@ def is_triangle(a, b, c):
    If we run 9119 through the function, 811181 will come out. 7kyu'''
 
 def square_digits(num):
-	return joined([int(i)**2 for i in str(num)])
+	squared = ''.join([str(int(i)**2) for i in str(num)])
+	return int(squared)
 
 '''In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G".
    You have function with one side of the DNA; you need to get the other complementary side.
@@ -31,13 +33,15 @@ def DNA_strand(dna):
 '''needs a program that among the given numbers finds one that is different in evenness, 
    and return a position of this number. 6kyu'''
 def iq_test(numbers):
-	for digit in str(numbers):
-		test_number = digit % 2
-		print(number)
-		if test_number > 0:
-			return False
-		else:
-			print(numbers[x])
+    temp = []
+    new_list = numbers.split()
+    for digit in new_list:
+      test_number = int(digit) % 2
+      temp.append(test_number)
+    if temp.count(0) > temp.count(1):
+      return temp.index(1) + 1
+    else:
+      return temp.index(0) + 1
 	# for i in [i for i,x in enumerate(str(numbers)) if x == 1]:
 	# 	print(i)
 '''Given an array, find the int that appears an odd number of times. 6kyu'''
@@ -51,9 +55,7 @@ def comp(array1, array2):
 		return sorted([i ** 2 for i in array1]) == sorted(array2)
 	except:
 		return False
-# a1 = [121, 144, 19, 161, 19, 144, 19, 11]
-# a2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
-# test.assert_equals(comp(a1, a2), True)
+
 
 '''ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
    If the function is passed a valid PIN string, return true, else return false.'''
