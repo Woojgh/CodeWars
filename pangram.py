@@ -8,5 +8,8 @@ def is_pan(sentence):
         if letter not in checklist:
             if letter.isalpha() is True:
                 checklist.append(letter)
-                if checklist == list(string.ascii_lowercase):
+                if sorted(checklist) == list(string.ascii_lowercase):
                     print('Is Pangram!')
+                    break
+    print('False')
+    print(sorted(checklist))
